@@ -126,5 +126,6 @@ p {
 @media only screen and (max-width: 650px) {
     .right-box {
         width: 80vw;
+        background: green;
     }
 }
