@@ -107,7 +107,7 @@ p {
         backdrop-filter: blur(30px);
         -webkit-backdrop-filter: blur(30px);
         height: 500px;
-        width: 90vw;
+        width: 100vw;
     }
 
     #line-separator {
@@ -145,10 +145,6 @@ p {
 @media only screen and (max-width: 650px) {
     main {
         width: 100%;
-    }
-
-    .right-box {
-        width: 100vw;
     }
 
     nav {
