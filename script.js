@@ -6,11 +6,12 @@ const rightBox = document.querySelector('.right-box');
 const paragraph = document.querySelector('p');
 const boxes = [...document.getElementsByClassName('boxes')];
 
-
 const start = document.querySelector('#start');
 
 const activeBorder = '1px solid purple';
-const startText = 'I have interest into Web Technology, especially Java Script which I am currently intensivly learning.';
+const startText = `My name is Artur and I am a student at Wrocław University of Technology. 
+
+Currently I\'m in my second year at Systems Engineering.`;
 
 console.log(about);
 let isStart = true;
@@ -18,7 +19,6 @@ let isStart = true;
 const switchBorder = () => {
     start.style.borderBottom = 'none';
     start.nextElementSibling.style.borderBottom = activeBorder;
-    console.log('switched')
 }
 
 const createLi = textInfo => {
@@ -36,7 +36,6 @@ const createLi = textInfo => {
 const changeLi = titleText => {
     const currentTitle = start.nextElementSibling;
     currentTitle.innerText = titleText;
-    console.log(currentTitle)
 }
 
 const removeLi = () => {
@@ -56,40 +55,28 @@ const textContent = (textInfo, title) => {
         paragraph.innerText = textInfo;
         isStart = false;
     } else if (start.parentNode.children.length > 1) {
-        console.log('Remove LI')
-        changeLi(title); //change Li title
+        changeLi(title);
         paragraph.innerText = textInfo;
         isStart = false;
     }
 }
 
-let openedBox;
 boxes.forEach(box => {
     box.addEventListener('click', (e) => {
-        if (openedBox !== undefined) {
-            console.log(box.id, 'close box, open new one')
-            switch (box.id) {
-                case 'projects':
-                    textContent('No projects already :)', 'My Projects');
-                    break;
-                case 'about':
-                    textContent(`I'm a Systems Engineering student at Wroclaw University of Science and Technology at 2nd year.
-I found that analytics and programming are the things that makes me satisfied and gives me a lot of pleasure when the problem is succesfully solved.`, 'About');
-                    break;
-            }
+        e.preventDefault();
+
+        console.log(box.id, 'close box, open new one')
+        switch (box.id) {
+            case 'projects':
+                textContent('No projects already :)', 'My Projects');
+                break;
+            case 'about':
+                textContent(`I have interest into web technologies like JS, HTML and CSS. I'm keeping learning and improving my skills by taking a full-stack course at CodeCademy. I've got basic knolwedge at Python language which is mainly used used at univeristy with data engineering.
+
+                 For now it's quite a problem which path should I take but in my spare of time I'm trying to write JS and consequently getting success with that.`, 'About');
+                break;
         }
-        openedBox = box.id;
-        console.log('Box clicked!', openedBox);
     });
 })
-
-document.addEventListener('click', e => {
-    e.preventDefault();
-})
-
-// myProjectsButton.onclick = () => textContent('No projects already :)', 'My Projects');
-
-// about.onclick = () => textContent(`I'm a Systems Engineering student at Wroclaw University of Science and Technology at 2nd year.
-// I found that analytics and programming are the things that makes me satisfied and gives me a lot of pleasure when the problem is succesfully solved.`, 'About');
 
 start.onclick = removeLi;
