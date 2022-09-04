@@ -13,6 +13,7 @@ body {
 main {
     display: flex;
     align-items: center;
+    height: 100vh;
 }
 
 header {
@@ -46,6 +47,7 @@ ul a {
     flex-direction: column;
     align-items: center;
     text-decoration: none;
+    color: gray;
 }
 
 h1 {
@@ -60,13 +62,13 @@ h1 {
 
 .left-box {
     width: 85%;
-    height: 100vh;
+    height: 100%;
     background: linear-gradient(219.6deg, rgba(174, 148, 97, 0.144) 32.73%, rgba(233, 233, 233, 0) 100%);
 }
 
 p {
     font-size: 20px;
-    padding: 20% 10%;
+    padding: 10vh 8vh;
 }
 
 .right-box {
@@ -82,29 +84,30 @@ p {
 
 .navigation ul {
     display: flex;
-    padding: 0% 0% 20% 20%;
+    padding: 0% 0% 10vh 8vh;
     justify-content: flex-start;
+    width: 100%;
 }
 
 #start {
     border-bottom: 1px solid purple;
 }
 
-@media only screen and (max-width: 1280px) {
+@media only screen and (max-width: 1150px) {
     main {
         flex-direction: column;
     }
 
     .left-box {
         width: 100%;
-        height: 60vh;
+        height: 500px;
     }
 
     .right-box {
         backdrop-filter: blur(30px);
         -webkit-backdrop-filter: blur(30px);
-        height: 80vh;
-        width: 50vw;
+        height: 500px;
+        width: 90vw;
     }
 
     #line-separator {
@@ -119,12 +122,43 @@ p {
     }
 
     .navigation {
-        padding: 5% 0%;
+        width: 100%;
+    }
+
+    .navigation ul {
+        justify-content: center;
+        padding: 5% 10%;
+        height: 20px;
+    }
+
+    .navigation ul li {
+        height: 20px;
+        margin-left: 10px !important;
+    }
+
+    p {
+        text-align: center;
+        padding: 5%;
     }
 }
 
 @media only screen and (max-width: 650px) {
+    main {
+        width: 100%;
+    }
+
     .right-box {
-        width: 80vw;
+        width: 100vw;
+    }
+
+    nav {
+        width: auto;
+    }
+}
+
+@media only screen and (max-height: 900px) {
+    main {
+        height: 1000px;
+        width: 100%;
     }
 }
