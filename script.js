@@ -9,12 +9,25 @@ const boxes = [...document.getElementsByClassName('boxes')];
 const start = document.querySelector('#start');
 
 const activeBorder = '1px solid purple';
-const startText = `My name is Artur and I am a student at Wrocław University of Technology. 
-
-Currently I\'m in my second year at Systems Engineering.`;
 
 console.log(about);
 let isStart = true;
+
+const getJsonContent = async () => {
+    try {
+        const textJson = await fetch('./text-content.json');
+        if (textJson.ok) {
+            textJsonParse = await textJson.json();
+            console.log(textJsonParse);
+            return textJsonParse;
+        }
+        throw new Error(`Can't find a file!`);
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+getJsonContent();
 
 const switchBorder = () => {
     start.style.borderBottom = 'none';
@@ -43,7 +56,7 @@ const removeLi = () => {
     start.parentNode.removeChild(element);
     start.style.borderBottom = 'none';
     start.style.borderBottom = activeBorder;
-    paragraph.innerText = startText;
+    paragraph.innerText = textJsonParse.descriptions.welcome;
     start.removeChild(start.lastChild);
 }
 
@@ -62,18 +75,18 @@ const textContent = (textInfo, title) => {
 }
 
 boxes.forEach(box => {
-    box.addEventListener('click', (e) => {
+    box.addEventListener('click', async (e) => {
         e.preventDefault();
 
         console.log(box.id, 'close box, open new one')
         switch (box.id) {
             case 'projects':
-                textContent('No projects already :)', 'My Projects');
+                const projectsTextContent = textJsonParse.descriptions['projects-description'];
+                textContent(projectsTextContent, 'My Projects');
                 break;
             case 'about':
-                textContent(`I have interest into web technologies like JS, HTML and CSS. I'm keeping learning and improving my skills by taking a full-stack course at CodeCademy. I've got basic knolwedge at Python language which is mainly used used at univeristy with data engineering.
-
-                 For now it's quite a problem which path should I take but in my spare of time I'm trying to write JS and consequently getting success with that.`, 'About');
+                const aboutTextContent = textJsonParse.descriptions['about-description'];
+                textContent(aboutTextContent, 'About');
                 break;
         }
     });
