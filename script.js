@@ -75,7 +75,7 @@ const textContent = (textInfo, title) => {
 }
 
 boxes.forEach(box => {
-    box.addEventListener('click', async (e) => {
+    box.addEventListener('click', (e) => {
         e.preventDefault();
 
         console.log(box.id, 'close box, open new one')
@@ -88,6 +88,8 @@ boxes.forEach(box => {
                 const aboutTextContent = textJsonParse.descriptions['about-description'];
                 textContent(aboutTextContent, 'About');
                 break;
+            case 'git':
+                window.location.href = 'https://github.com/Brknholz';
         }
     });
 })
