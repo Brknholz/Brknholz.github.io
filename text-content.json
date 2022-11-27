@@ -1,7 +1,7 @@
 {
     "descriptions": {
         "welcome": "My name is Artur and I am a student at Wrocław University of Technology.\n\nCurrently I'm in my second year at Systems Engineering.",
-        "projects-description": "No projects already :)",
+        "projects-description": "<a href='https://github.com/Brknholz/Brknholz.github.io.git'>Node IoT project</a>",
         "about-description": "I have interest into web technologies like JS,\nHTML and CSS. I'm keeping learning and improving my skills\n by taking a full-stack course at CodeCademy.\n\nI've got basic knolwedge at Python language which is mainly used used at univeristy with data engineering.\n\nI am looking for first experience in IT industry."
     }
 }

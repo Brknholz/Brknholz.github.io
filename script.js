@@ -65,11 +65,11 @@ const textContent = (textInfo, title) => {
     console.log(elementCount);
     if (start.parentNode.children.length <= 1) {
         createLi(title);
-        paragraph.innerText = textInfo;
+        paragraph.innerHTML = textInfo;
         isStart = false;
     } else if (start.parentNode.children.length > 1) {
         changeLi(title);
-        paragraph.innerText = textInfo;
+        paragraph.innerHTML = textInfo;
         isStart = false;
     }
 }
